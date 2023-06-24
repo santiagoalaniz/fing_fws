@@ -1,0 +1,198 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+
+
+# ~~~~~ Clases extraidas de la realidad de la Letra AG4-RDF(s) y sus propiedades ~~~~~
+
+## Clase-RDF: Productores de CoopGran
+
+ex:PRODUCTOR_COOPGRAN a rdfs:Class ;
+  rdfs:comment "Representacion de los Productores de CoopGran" ;
+  rdfs:label "Productor CoopGran".
+
+ex:id_productor a rdf:Property ;
+  rdfs:domain ex:PRODUCTOR_COOPGRAN ;
+  rdfs:comment "Identificador del productor en CoopGran";
+  rdfs:range xsd:string ;
+  rdfs:label "Identificador del productor".
+
+ex:nro_documento a rdf:Property ;
+  rdfs:domain ex:PRODUCTOR_COOPGRAN ;
+  rdfs:comment "Numero de documento del productor";
+  rdfs:range xsd:string ;
+  rdfs:label "Numero de documento del productor".
+
+ex:direccion a rdf:Property ;
+  rdfs:domain ex:PRODUCTOR_COOPGRAN ;
+  rdfs:comment "Direccion del productor";
+  rdfs:range xsd:string ;
+  rdfs:label "Direccion del productor".
+
+## Clase-RDF: Productos de CoopGran
+
+ex:PRODUCTO_COOPGRAN a rdfs:Class ;
+  rdfs:comment "Representación de los Productos de CoopGran" ;
+  rdfs:label "Producto CoopGran".
+
+ex:id_producto a rdf:Property ;
+  rdfs:domain ex:PRODUCTO_COOPGRAN ;
+  rdfs:comment "Identificador del producto en CoopGran" ;
+  rdfs:range xsd:string ;
+  rdfs:label "Identificador del producto".
+
+ex:denominacion a rdf:Property ;
+  rdfs:domain ex:PRODUCTO_COOPGRAN ;
+  rdfs:comment "Denominación del producto" ;
+  rdfs:range xsd:string ;
+  rdfs:label "Denominación del producto".
+
+## Clases-RDF: Etapas
+
+### Clase-RDF: Etapa (superclase)
+
+ex:ETAPA a rdfs:Class ;
+  rdfs:comment "Etapa en el proceso de producción" ;
+  rdfs:label "Etapa".
+
+ex:fecha_inicio_etapa a rdf:Property ;
+  rdfs:domain ex:ETAPA ;
+  rdfs:comment "Fecha de inicio de la etapa" ;
+  rdfs:range xsd:date ;
+  rdfs:label "Fecha de inicio".
+
+### Clases-RDF: Etapas de produccion de la Tierra (subclases)
+
+ex:PREPARACION_TIERRA a rdfs:Class ;
+  rdfs:subClassOf ex:ETAPA ;
+  rdfs:comment "Etapa de preparación de la tierra" ;
+  rdfs:label "Preparación de la Tierra".
+
+ex:SIEMBRA a rdfs:Class ;
+  rdfs:subClassOf ex:ETAPA ;
+  rdfs:comment "Etapa de siembra" ;
+  rdfs:label "Siembra".
+
+ex:MANTENIMIENTO a rdfs:Class ;
+  rdfs:subClassOf ex:ETAPA ;
+  rdfs:comment "Etapa de mantenimiento" ;
+  rdfs:label "Mantenimiento".
+
+ex:COSECHA a rdfs:Class ;
+  rdfs:subClassOf ex:ETAPA ;
+  rdfs:comment "Etapa de cosecha" ;
+  rdfs:label "Cosecha".
+
+## Clases-RDF: Agroproductos
+
+### Clase-RDF: Agroproducto (superclase)
+
+ex:AGROPRODUCTO a rdfs:Class ;
+  rdfs:comment "Agroproducto utilizado en la producción agrícola" ;
+  rdfs:label "Agroproducto".
+
+ex:id_agroproducto a rdf:Property ;
+  rdfs:domain ex:AGROPRODUCTO ;
+  rdfs:comment "Identificador del agroproducto" ;
+  rdfs:range xsd:string ;
+  rdfs:label "Identificador".
+
+ex:nombre_agroproducto a rdf:Property ;
+  rdfs:domain ex:AGROPRODUCTO ;
+  rdfs:comment "Nombre del agroproducto" ;
+  rdfs:range xsd:string ;
+  rdfs:label "Nombre".
+
+ex:composicion_agroproducto a rdf:Property ;
+  rdfs:domain ex:AGROPRODUCTO ;
+  rdfs:comment "Composición del agroproducto" ;
+  rdfs:range xsd:string ;
+  rdfs:label "Composición".
+
+### Clases-RDF: Agroproductos Especificos (subclases)
+
+#### Clases-RDF: Pesticidas (subclase de Agroproducto, superclase de Pesticida Químico y Pesticida Orgánico)
+ex:PESTICIDA a rdfs:Class ;
+  rdfs:subClassOf ex:AGROPRODUCTO ;
+  rdfs:comment "Pesticida utilizado en la producción agrícola" ;
+  rdfs:label "Pesticida".
+
+##### Clases-RDF: Pesticidas Químicos y Orgánicos (subclases de Pesticida)
+ex:PESTICIDA_QUIMICO a rdfs:Class ;
+  rdfs:subClassOf ex:PESTICIDA ;
+  rdfs:comment "Pesticida químico utilizado en la producción agrícola" ;
+  rdfs:label "Pesticida Químico".
+
+ex:PESTICIDA_ORGANICO a rdfs:Class ;
+  rdfs:subClassOf ex:PESTICIDA ;
+  rdfs:comment "Pesticida orgánico utilizado en la producción agrícola" ;
+  rdfs:label "Pesticida Orgánico".
+
+#### Clases-RDF: Fertilizantes (subclase de Agroproducto)
+ex:FERTILIZANTE a rdfs:Class ;
+  rdfs:subClassOf ex:AGROPRODUCTO ;
+  rdfs:comment "Fertilizante utilizado en la producción agrícola" ;
+  rdfs:label "Fertilizante".
+
+# ~~~~~Relaciones entre clases extraidas de la Letra AG4-RDF(s)~~~~~
+
+## Relaciones entre Productores y Productos
+
+ex:produce a rdf:Property ;
+  rdfs:domain ex:PRODUCTOR_COOPGRAN ;
+  rdfs:range ex:PRODUCTO_COOPGRAN ;
+  rdfs:comment "Relaciona un productor con un producto" ;
+  rdfs:label "produce".
+
+## Relaciones entre Productores y Etapas
+
+ex:comienzaPreparacion a rdf:Property ;
+  rdfs:domain ex:PRODUCTOR_COOPGRAN ;
+  rdfs:range ex:PREPARACION_TIERRA ;
+  rdfs:comment "Relaciona un productor con la etapa de preparación de la tierra" ;
+  rdfs:label "comienzaPreparacion".
+
+ex:comienzaSiembra a rdf:Property ;
+  rdfs:domain ex:PRODUCTOR_COOPGRAN ;
+  rdfs:range ex:SIEMBRA ;
+  rdfs:comment "Relaciona un productor con la etapa de siembra" ;
+  rdfs:label "comienzaSiembra".
+
+ex:comienzaMantenimiento a rdf:Property ;
+  rdfs:domain ex:PRODUCTOR_COOPGRAN ;
+  rdfs:range ex:MANTENIMIENTO ;
+  rdfs:comment "Relaciona un productor con la etapa de mantenimiento" ;
+  rdfs:label "comienzaMantenimiento".
+
+ex:comienzaCosecha a rdf:Property ;
+  rdfs:domain ex:PRODUCTOR_COOPGRAN ;
+  rdfs:range ex:COSECHA ;
+  rdfs:comment "Relaciona un productor con la etapa de cosecha" ;
+  rdfs:label "comienzaCosecha".
+
+## Relacion: "En las diferentes etapas se aplican agroproductos"
+
+ex:aplica a rdf:Property ;
+  rdfs:domain ex:ETAPA ;
+  rdfs:range ex:AGROPRODUCTO ;
+  rdfs:comment "Relaciona una etapa con un agroproducto" ;
+  rdfs:label "aplica".
+
+## Relacion: "Algunos pesticidas quimicos afectan a los productos"
+
+ex:afecta a rdf:Property ;
+  rdfs:domain ex:PESTICIDA_QUIMICO ;
+  rdfs:range ex:PRODUCTO_COOPGRAN ;
+  rdfs:comment "Relaciona un pesticida químico con un producto" ;
+  rdfs:label "afecta".
+
+## Relacion: En la etapa (1) se aplican pesticidas. Distinguir la aplicación de organico y quimico
+
+:aplicaPesticidaOrganicoPreparacion a rdf:Property .
+  rdfs:domain :PREPARACION_TIERRA .
+  rdfs:range :PESTICIDA_ORGANICO .
+
+:aplicaPesticidaQuimicoPreparacion a rdf:Property .
+  rdfs:domain :PREPARACION_TIERRA .
+  rdfs:range :PESTICIDA_QUIMICO .
