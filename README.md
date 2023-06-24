@@ -1,1 +1,5 @@
-# fing_fws
+# Fundamentos de la Web Semántica
+
+La web semántica, también conocida como Web 3.0, es una extensión de la World Wide Web actual que tiene como objetivo proporcionar un marco para compartir e reutilizar datos a través de diferentes fronteras. Fue propuesta por Tim Berners-Lee, el inventor de la World Wide Web. La idea es que los ordenadores sean capaces de entender y responder a las solicitudes de los usuarios de una manera más "inteligente" y útil.
+
+La web semántica logra esto mediante el uso de metadatos y otras tecnologías para entender el significado, la relación y la relevancia de la información. En lugar de simplemente reconocer palabras y frases, la web semántica comprende los conceptos y el contexto. Esto podría permitir, por ejemplo, que un usuario busque información de una manera más natural y reciba resultados más precisos.
