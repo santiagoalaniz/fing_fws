@@ -1,3 +1,5 @@
+# Unidad 1: Evolución de la Web
+
 **¿Qué es la Web?**
 La web, tal como la conocemos hoy en día, es un conjunto de sitios web interconectados que utilizan el protocolo HTTP para transmitir información a través de la red. Los usuarios pueden interactuar con estos sitios web utilizando navegadores web. La web permite el acceso a una amplia variedad de información, servicios y aplicaciones en línea, incluyendo redes sociales, servicios de correo electrónico, herramientas de búsqueda, plataformas de comercio electrónico y servicios de streaming.
 
