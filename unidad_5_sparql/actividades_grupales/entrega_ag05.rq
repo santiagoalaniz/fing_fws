@@ -1,0 +1,30 @@
+# Santiago Alaniz 50826476 santiago.alaniz@fing.edu.uy
+# Javier Gómez 38863923 javier.gomez@fing.edu.uy
+# Bruno De Simone 49145550 bruno.de.simone@fing.edu.uy
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ag5: <file:/uploaded/generated/AG5-RDFS.rdf#>
+
+SELECT ?productor ?direccionProductor (COUNT(DISTINCT ?pesticidaOrganico) AS ?cantidadPesticidasOrganicos) 
+       (COUNT(DISTINCT ?pesticidaQuimico) AS ?pesticidasQuimicosQueAfectenAlgunProducto) 
+       (COUNT(DISTINCT ?otroProductor) AS ?cantidadProductoresAfectados)
+WHERE {
+  ?productor rdf:type ag5:Productor.
+  ?productor ag5:direccionProductor ?direccionProductor.
+
+  OPTIONAL { # Obtengo cantidad de pesticidas organicos
+    ?productor ag5:cumple ?preparacion.
+    ?preparacion ag5:seAplicaPestOrganico ?pesticidaOrganico.
+  }
+
+  OPTIONAL { # Obtengo cantidad de pesticidas quimicos que afectan a otro productor
+    ?otroProductor rdf:type ag5:Productor. # Obtengo otro productor (POTENCIAL AFECTADO)
+    FILTER (?otroProductor != ?productor) # Filtro que sean distintos
+    ?productor ag5:cumple ?actividad. # Obtengo actividades de productor
+    ?actividad ag5:seAplicaPestQuimico ?pesticidaQuimico. # Obtengo pesticidas quimicos de actividades
+    ?otroProductor ag5:produce ?otroProducto. # Obtengo productos del otro productor
+
+    ?pesticidaQuimico ag5:afecta ?otroProducto. # Veo que pesticida afecte a producto
+  }
+}
+GROUP BY ?productor ?direccionProductor

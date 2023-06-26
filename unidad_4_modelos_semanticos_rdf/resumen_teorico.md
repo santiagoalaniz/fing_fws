@@ -32,5 +32,3 @@ Aquí hay algunos aspectos clave del RDF que se discuten en el documento:
 5. **Reificación en RDF**: La reificación en RDF es un proceso que permite representar información adicional sobre una tripla o una relación en el grafo RDF. A menudo, es necesario representar metadatos sobre una declaración, como la fuente de la información, la confiabilidad o el tiempo en el que se hizo la declaración.
 
 6. **RDF Schema / RDF Vocabulary**: RDF Schema (RDFs) es un lenguaje de vocabulario que permite definir características semánticas de los datos RDF. Ayuda a establecer restricciones y relaciones entre clases y propiedades en el grafo RDF, facilitando la comprensión e interpretación de los datos por parte de los sistemas informáticos.
-
-Espero que esto te ayude a entender mejor RDF. Si tienes más preguntas o necesitas más detalles sobre algún aspecto específico, no dudes en preguntar.
