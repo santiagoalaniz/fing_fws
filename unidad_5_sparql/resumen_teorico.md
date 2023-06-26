@@ -2,7 +2,7 @@
 
 - **¿Qué es SPARQL?**: SPARQL se utiliza para formular consultas para buscar patrones y realizar operaciones complejas en grafos RDF. Permite consultas flexibles y poderosas sobre los datos RDF, acceder a diferentes fuentes de datos y obtener resultados precisos y relevantes.
 
-- **¿Por qué se necesita un lenguaje de consulta de grafos?**: El documento utiliza el ejemplo de buscar bailarines de ballet en Google, que devolvería una lista de páginas relacionadas con el tema. Sin embargo, si queremos una lista completa de bailarines de ballet en todo el mundo, esta información se encuentra en bases de datos RDF como DBPEDIA. SPARQL puede recuperar un conjunto de recursos que cumplen ciertas condiciones.
+- **¿Por qué se necesita un lenguaje de consulta de grafos?**: El ejemplo de buscar bailarines de ballet en Google, que devolvería una lista de páginas relacionadas con el tema. Sin embargo, si queremos una lista completa de bailarines de ballet en todo el mundo, esta información se encuentra en bases de datos RDF como DBPEDIA. SPARQL puede recuperar un conjunto de recursos que cumplen ciertas condiciones.
 
 - **¿Para qué sirve SPARQL?**: SPARQL nos permite obtener un subgrafo con los datos que buscamos al aplicar condiciones en el grafo que contiene la información en formato RDF. También nos permite combinar grafos de diferentes bases RDF para obtener información más completa y precisa, integrando múltiples fuentes de información.
 
